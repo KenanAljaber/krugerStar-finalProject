@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NegocioCloudConfigApplication<negocio-cloud-config>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.minegocio.NegocioCloudConfigApplication",
+            "projectName": "negocio-cloud-config",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-NegocioRegistryServiceApplication<negocio-registry-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.minegocio.NegocioRegistryServiceApplication",
+            "projectName": "negocio-registry-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-NegocioGatewayApplication<negocio-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.minegocio.NegocioGatewayApplication",
+            "projectName": "negocio-gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MiNegocioApplication<mi-negocio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.minegocio.MiNegocioApplication",
+            "projectName": "mi-negocio",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

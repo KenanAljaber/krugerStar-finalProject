@@ -14,6 +14,12 @@ public class FallbackController {
 		return Mono.just("Customer service is taking too long to execute,"
 				+ " please try again later");
 	}
+
+	@RequestMapping("/casinoFallback")
+	public Mono<String> casinoFallback(){
+		return Mono.just("Casino service is taking too long to execute,"
+				+ " please try again later");
+	}
 	
 
 }

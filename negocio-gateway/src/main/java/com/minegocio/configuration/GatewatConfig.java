@@ -7,17 +7,25 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class GatewatConfig {
-	
+
 	@Bean
-	public RouteLocator customRouteLocator (RouteLocatorBuilder builder) {
+	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
-				.route(p-> p.path("/api/customers/**")
-						.filters(f->{
-							f.circuitBreaker(c->c.setName("user-service").setFallbackUri("forward:/customerFallback"));
+				.route(p -> p.path("/api/customers/**")
+						.filters(f -> {
+							f.circuitBreaker(
+									c -> c.setName("user-service").setFallbackUri("forward:/customerFallback"));
 							return f;
-						}).uri("lb://user-service")).build();
-		
-		
+						}).uri("lb://user-service"))
+
+				.route(p -> p.path("/api/casino/**")
+						.filters(f -> {
+							f.circuitBreaker(
+									c -> c.setName("casino-service").setFallbackUri("forward:/casinoFallback"));
+							return f;
+						}).uri("lb://casino-service"))
+				.build();
+
 	}
 
 }

@@ -77,8 +77,14 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void deleteById(int id) {
-		customerRepo.deleteById(id);
+	public boolean deleteById(int id) {
+		Customer c=this.findById(id);
+		if (c!=null){
+			customerRepo.deleteById(id);
+			return true;
+		}
+		return false;
+		
 	}
 
 	@Override
@@ -92,6 +98,7 @@ public class CustomerServiceImpl implements CustomerService {
 		customer.setIdNumber(updatedCustomer.getIdNumber());
 		customer.setPhoneNumber(updatedCustomer.getPhoneNumber());
 		customer.setMainAddress(updatedCustomer.getMainAddress());
+		customer.setType(updatedCustomer.getType());
 
 		return customerRepo.save(customer);
 	}
@@ -104,6 +111,15 @@ public class CustomerServiceImpl implements CustomerService {
 		}
 		customer.setOtherAddresses(updatedCustomer.getOtherAddresses());
 		return null;
+	}
+
+	@Override
+	public void updateCustomerBalance(int customerId, double newCustomerBalance) {
+		Customer c= findById(customerId);
+
+		c.setBalance(newCustomerBalance);
+		customerRepo.save(c);
+		
 	}
 	
 	
